@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "xyz.kycdao.signer";
+option java_outer_classname = "SignerProto";
+option objc_class_prefix = "SGN";
+
+package signer;
+
+service Signer {
+  // Signs a message
+  rpc SignMessage (SigningRequest) returns (SigningReply) {}
+}
+
+// The request message containing the data to be signed
+message SigningRequest {
+  string key_id = 1;
+  bytes data = 2;
+}
+
+// The response message containing the signature
+message SigningReply {
+  bytes signature = 1;
+}

@@ -1,0 +1,12 @@
+[package]
+name = "grpc_signer"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+protoc-rust-grpc = "0.8.3"
+
+[dependencies]
+grpc = "0.8.3"
+grpc-protobuf = "0.8.3"
+protobuf = "2.18.2"
