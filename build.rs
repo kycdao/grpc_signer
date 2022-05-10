@@ -1,11 +1,10 @@
+use std::path::PathBuf;
+
 fn main() {
-    protoc_rust_grpc::Codegen::new()
-        .out_dir("src")
-        .include("proto")
-        .inputs(&[
-            "proto/signer.proto",
-        ])
-        .rust_protobuf(true)
-        .run()
-        .expect("protoc-rust-grpc");
+    let out_dir = PathBuf::from("src");
+    tonic_build::configure()
+        .out_dir(out_dir)
+        //.file_descriptor_set_path(out_dir.join("signer_descriptor.bin"))
+        .compile(&["proto/signer.proto"], &["proto"])
+        .unwrap();
 }

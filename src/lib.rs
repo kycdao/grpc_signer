@@ -1,7 +1,7 @@
-pub use grpc;
+/*pub mod signer {
+    tonic::include_proto!("signer");
+}*/
 
 mod signer;
-mod signer_grpc;
 
 pub use signer::*;
-pub use signer_grpc::*;
